@@ -1,0 +1,196 @@
+<!-- <div class="span12" style="border: 1px solid black"> -->
+
+<!-- <div class="container"> -->
+  <div class="row">
+    <div  class="col-md-3">
+    
+        <label for="flightNumber" style="font-size: 14px;">Flight Number</label>
+        <input type="text" [(ngModel)]="flight.flightNumber" readonly="true" value="0" class="form-control">
+    </div> 
+    <br>
+    <div class="col-md-9">
+      <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">     
+        <span style="font-size: large;" class="text-success">{{Errmsg}}</span>
+      </div>
+    </div>
+  
+  </div>
+  <!-- </div> -->
+  <!-- <div class="container"> -->
+  <form  #flightForm="ngForm"  (ngSubmit)="Submit(flightForm)">  
+
+    <div  class="row">
+      <div *ngIf="isShown" class="col-md-4">
+        <label for="flightNumber">Flight Number</label>
+        <input type="text" [(ngModel)]="flight.flightNumber" value="0" required=required class="form-control">
+    </div> 
+      <div class="col-md-4">
+        <label for="airLine" class="form-label">Air Line</label>
+        <input required   type="text" name="airLine" #airLine="ngModel" class="form-control" placeholder="Enter Air Line"
+        [(ngModel)]="flight.airLine"
+         >
+         <span class="error" *ngIf="airLine.touched && airLine.invalid" >Please Enter Air Line</span> 
+    
+        <!-- <input required type="text" [(ngModel)]="flight.airLine" class="form-control"
+       id="airLine" required> -->
+       
+    </div>
+        <div class="col-md-4">
+            <label for="Intrument_Used">Instrument Used</label>
+            <input required   type="text" name="intrument_Used" #intrument_Used="ngModel" class="form-control" placeholder="Enter Used Instrument"
+            [(ngModel)]="flight.intrument_Used"
+             >
+             <span class="error" *ngIf="intrument_Used.touched && intrument_Used.invalid" >Please Enter Used Instrument</span> 
+        
+            <!-- <input required type="text" [(ngModel)]="flight.intrument_Used" class="form-control"> -->
+        </div> 
+    
+        <div class="col-md-4">
+            <label for="from_Place">From Place</label>
+            <input required   type="text" name="from_Place" #from_Place="ngModel" class="form-control" placeholder="Enter From Place"
+            [(ngModel)]="flight.from_Place"
+             >
+             <span class="error" *ngIf="from_Place.touched && from_Place.invalid" >Please Enter From Place</span> 
+        
+            <!-- <input required type="text" [(ngModel)]="flight.from_Place" class="form-control"> -->
+        </div>
+
+    </div>
+   
+    <div class="row">
+              <div class="col-md-4">
+            <label for="to_Place">To Place</label>
+            <input required   type="text" name="to_Place" #to_Place="ngModel" class="form-control" placeholder="Enter To Place"
+            [(ngModel)]="flight.to_Place"
+             >
+             <span class="error" *ngIf="to_Place.touched && to_Place.invalid" >Please Enter To Place</span> 
+        
+          
+        </div>
+      <div class="col-md-4">
+        <label for="price">Price</label>
+        <input required   type="number" name="price" #price="ngModel" class="form-control" placeholder="Enter Price"
+        [(ngModel)]="flight.price"
+         >
+         <span class="error" *ngIf="price.touched && price.invalid" >Please Price</span> 
+    
+        <!-- <input required type="text" [(ngModel)]="flight.price" class="form-control"> -->
+    </div> 
+    <div class="col-md-4">
+      <label for="startDateTime">Departure Date</label>
+              <input required   type="datetime-local" name="startDateTime" #startDateTime="ngModel" class="form-control" placeholder="Enter Start Date"
+        [(ngModel)]="flight.startDateTime"
+         >
+         <span class="error" *ngIf="startDateTime.touched && startDateTime.invalid" >Please Enter Start Date</span> 
+    
+      <!-- <input type="datetime-local" [(ngModel)]="flight.startDateTime" class="form-control"> -->
+  </div> 
+
+  <!-- <input required type="text" [(ngModel)]="flight.totalBusinessClassSeats" class="form-control"> -->
+</div> 
+   
+    <div class="row">
+      <div class="col-md-4">
+        <label for="endDateTime">Arrival Date</label>
+        <input required   type="datetime-local" name="endDateTime" #endDateTime="ngModel" class="form-control" placeholder="Enter Arrival Date"
+        [(ngModel)]="flight.endDateTime"
+         >
+         <span class="error" *ngIf="endDateTime.touched && endDateTime.invalid" >Please Enter Arrival Date</span> 
+      </div>
+        <!-- <input required type="datetime-local" [(ngModel)]="flight.endDateTime" class="form-control"> -->
+    
+    <div class="col-md-4">
+      <label for="totalBusinessClassSeats">No. Of Business Seats</label>
+      <input required   type="number" name="totalBusinessClassSeats" #totalBusinessClassSeats="ngModel" class="form-control" placeholder="Enter Business No.of Seats"
+      [(ngModel)]="flight.totalBusinessClassSeats"
+       >
+       <span class="error" *ngIf="totalBusinessClassSeats.touched && totalBusinessClassSeats.invalid" >Please Enter Business No.of Seats</span> 
+    </div>
+      <div class="col-md-4">
+        <label for="totalNonBusinessClassSeats">No. Of Economy Seats</label>
+        <input required   type="number" name="totalNonBusinessClassSeats" #totalNonBusinessClassSeats="ngModel" class="form-control" placeholder="Enter Economy No.of Seats"
+        [(ngModel)]="flight.totalNonBusinessClassSeats"
+         >
+         <span class="error" *ngIf="totalNonBusinessClassSeats.touched && totalNonBusinessClassSeats.invalid" >Please Enter Economy No.of Seats</span> 
+      </div>
+        <!-- <input required type="text" [(ngModel)]="flight.totalNonBusinessClassSeats" class="form-control"> -->
+    </div>
+    <div class="row">
+    <div class="col-md-4">
+      <label for="noOfRows">No. Of Rows</label>
+      <input required   type="number" name="noOfRows" #noOfRows="ngModel" class="form-control" placeholder="Enter No.of Rows"
+      [(ngModel)]="flight.noOfRows"
+       >
+       <span class="error" *ngIf="noOfRows.touched && noOfRows.invalid" >Please Enter No.of Rows</span> 
+    
+      <!-- <input required type="text" [(ngModel)]="flight.noOfRows" class="form-control"> -->
+  </div>
+
+<div class="col-md-4">
+  <label for="mealType">Meal Type</label>
+  <!-- <input required   type="text" name="mealType" #mealType="ngModel" class="form-control" placeholder="Enter Meal Type"
+  [(ngModel)]="flight.mealType"
+   >
+   <span class="error" *ngIf="mealType.touched && mealType.invalid" >Please Enter Meal Type</span>  -->
+
+
+
+   <select class="form-control"  [(ngModel)]="flight.mealType" name="mealType" #mealType="ngModel" required>
+    <option value="None">None</option>
+     <option value="Veg">Veg</option>
+     <option value="NonVeg">Non Veg</option>
+   </select>
+   <span class="error" *ngIf="mealType.touched && mealType.invalid" >Please Select Meal Type</span> 
+
+  <!-- <input required type="text" [(ngModel)]="flight.mealType" class="form-control"> -->
+</div>
+
+<div class="col-md-4">
+  <label for="scheduledDays">Scheduled Days</label>
+     <select class="form-control"  [(ngModel)]="flight.scheduledDays" name="scheduledDays" #scheduledDays="ngModel" required>
+    <option value="None">None</option>
+     <option value="Daily">Daily</option>
+     <option value="Monday">Monday</option>
+     <option value="Tuesday">Tuesday</option>
+     <option value="Wednesday">Wednesday</option>
+     <option value="Thrusday">Thrusday</option>
+     <option value="Friday">Friday</option>
+     <option value="Saturday">Saturday</option>
+     <option value="Sunday">Sunday</option>
+   </select>
+   <span class="error" *ngIf="scheduledDays.touched && scheduledDays.invalid" >Please Select Scheduled Days</span>
+
+  
+</div>
+    </div>
+ 
+  <br>
+  <div class="row">
+    <div class="col-md-2">
+      <!-- <button class="btn btn-success" on-click='Save()'>Add Flight</button> -->
+      <button type="submit" class="btn btn-primary" [disabled]="flightForm.invalid">Add Flight</button>
+    </div>
+    </div>  
+  
+  </form>
+<!-- </div> -->
+  <br>
+    <!-- <div  class="row">   
+    <div  class="float-right">
+     
+      <div class="col-md-2">
+      <button class="btn btn-primary mb1 bg-blue" on-click='Edit()'>Update</button>
+      </div>
+      <div class="col-md-2">
+      <button class="btn btn-success" on-click='Search()'>Search</button>
+    </div>
+    <div class="col-md-2">
+      <button class="btn btn-primary" on-click='Delete()'>Delete</button>
+    </div>
+    </div>
+ </div> -->
+<br>
+
+
+
+<!-- </div> -->

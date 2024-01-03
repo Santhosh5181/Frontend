@@ -1,0 +1,45 @@
+<div class="container" #content>
+  <div class="span9" style="border: 1px solid black">
+    <table class="table table-striped table-hover">
+      <thead>
+  
+        <tr>
+          <th>Flight Number</th>
+          <th>From</th>
+          <th>To</th>
+          <th>PNR</th>
+          <th>Booking Status</th>
+          <th>Meal</th>
+          <th>No. Of Seats</th>
+          <th>Price</th>
+          <th>Email</th>   
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of tickets">
+            <td>{{item.flightID}}</td>
+            <td>{{item.fromPlace}}</td>
+            <td>{{item.toPlace}}</td>
+          <td>{{item.pnr}}</td>
+         <td>{{item.bookingStatus}}</td>
+         <td>{{item.mealType}}</td>
+         <td>{{item.noOfSeats}}</td>
+        
+         <td>{{item.totalPrice}}</td>
+          <td>{{item.email}}</td>         
+          <td><span class="btn btn-warning" (click)="Cancel(item)">Cancel</span></td> 
+          <td><span class="btn btn-primary" (click)="View(item)">View</span></td>   
+          <!-- <td><span class="btn btn-success" (click)="Download(item)">Download</span></td>  -->
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  </div>
+
+
+  
+  
+
+
+  
+  

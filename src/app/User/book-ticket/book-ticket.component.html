@@ -1,0 +1,90 @@
+<div class="container">
+  
+  <form  #bookingForm="ngForm"  (ngSubmit)="Submit(bookingForm)">
+  <div class="row">
+   
+     <div class="col-xs-6 col-sm-6 col-md-6">
+       Flight Details
+     </div>
+     <div class="col-xs-6 col-sm-6 col-md-6">
+        Traveller Details
+     </div>
+ </div>
+
+ <div class="row">
+  <div class="col-xs-6 col-sm-6 col-md-6">
+    <label for="flightID">Flight Number</label>
+        <label for="flightID" class="form-control">{{fId}}</label>
+       
+  </div>
+  <div class="col-xs-6 col-sm-6 col-md-6">
+    <label for="email">Email</label>
+
+    <input required   type="text" name="email" #email="ngModel" class="form-control" placeholder="Enter Email"
+    [(ngModel)]="ticket.email">
+     <span class="error" *ngIf="email.touched && email.invalid" >Please Enter Email ID</span>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-6 col-sm-6 col-md-6">
+  
+        <label for="from_Place">From place</label>
+        <label for="from_Place" class="form-control">{{fromplace}}</label>
+  </div>
+  <div class="col-xs-6 col-sm-6 col-md-6">
+    <label for="noOfSeats">No.Of Seats</label>
+    <input required   type="number" name="noOfSeats" #noOfSeats="ngModel" class="form-control" placeholder="Enter Seats"
+    [(ngModel)]="ticket.noOfSeats">
+     <span class="error" *ngIf="noOfSeats.touched && noOfSeats.invalid" >Please Enter Seats</span>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-6 col-sm-6 col-md-6">
+    <label for="to_Place">To Place</label>
+    <label for="to_Place" class="form-control">{{toplace}}</label>
+  </div>
+  <div class="col-xs-6 col-sm-6 col-md-6">
+    <label for="mealType">Meal</label>
+    <select class="form-control"  [(ngModel)]="ticket.mealType" name="mealType" #mealType="ngModel" required>
+      <option value="None">None</option>
+       <option value="Veg">Veg</option>
+       <option value="NonVeg">Non Veg</option>
+     </select>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-6 col-sm-6 col-md-6">
+    <label for="startDateTime">Departure Date</label>
+    <label for="startDateTime" class="form-control">{{traveldate}}</label>
+  </div>
+
+</div>
+<div class="row">
+  <div class="col-xs-6 col-sm-6 col-md-6">
+   
+  </div>
+  <div class="col-xs-6 col-sm-6 col-md-6">
+    <div *ngIf="isShown"  class="float-right">
+      <br>
+      <button type="submit" class="btn btn-primary" [disabled]="bookingForm.invalid">Book Tickets</button>
+      <!-- <button class="btn btn-success" on-click='Save()'>Book Tickets </button>       -->
+    </div>
+  </div>
+</div>
+    <div  class="row">
+
+
+
+    </div>
+    <div *ngIf="isShown1" class="row">
+      <div class="alert alert-success page-alert" id="alert-1">
+        <button type="button" class="close"><span class="sr-only">Close</span></button>
+        <strong>Well done!</strong>{{msg}}
+    </div>
+
+
+      </div>
+     
+    </form>
+</div>
+

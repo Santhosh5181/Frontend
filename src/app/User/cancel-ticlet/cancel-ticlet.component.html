@@ -1,0 +1,48 @@
+<!-- <div class="container">
+    <form>
+<div class="row">
+  <div  class="col-md-6">
+    
+      <label for="PNR">PNR Number</label>
+      <input type="text" [(ngModel)]="this.PNR" id="name"
+      ngModel name="name" [ngModelOptions]="{standalone: true}"  class="form-control">
+  </div> 
+</div>
+<div  class="row">
+   
+    <div  class="float-right">
+      <br>
+      <button class="btn btn-success" on-click='Cancel()'>Submit </button>
+
+    </div>
+
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">     
+        <span style="font-size: large;" class="text-danger">{{Errmsg}}</span>
+      </div>
+    </div>
+  </form>
+</div> -->
+
+<div style="text-align:left">
+<form  #cancelForm="ngForm"  (ngSubmit)="Submit(cancelForm)">
+  <div class="form-group">
+    <label>PNR Number</label>
+    <input required   type="text" name="pnr" #pnr="ngModel" class="form-control" placeholder="Enter PNR Number"
+      [(ngModel)]="this.PNR"
+       >
+    <span class="error" *ngIf="pnr.touched && pnr.invalid" >Please Enter PNR Number</span>     
+  
+  </div>
+
+  <div class="button-control">          
+    <button type="submit" class="btn btn-primary" [disabled]="cancelForm.invalid">Submit</button>
+    <br>
+    <span style="font-size: large;" class="text-danger">{{Errmsg}}</span>
+  </div>    
+
+
+
+</form>
+</div>

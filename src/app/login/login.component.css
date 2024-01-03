@@ -1,0 +1,43 @@
+.imgdiv{      
+    margin-left: 150px;      
+    height: 150px;      
+}      
+.img1{      
+    height: 200px;      
+    width: 200px;           
+} 
+.center {
+    border: 5px solid #FFFF00;
+    text-align: center;
+    }
+
+    .form-control{      
+        text-align: left;      
+     
+        color: black;      
+        border-color: black;      
+        border-radius: 1px;      
+    }      
+    .btn-btn-primary{      
+        text-align: center;      
+        border-radius: 6px;      
+        background-color: #1976d2;      
+        width: 80px;      
+        height:30px;      
+        border-style: hidden;      
+        color: white;      
+    }      
+    input.ng-invalid.ng-touched{      
+        border-color: red;      
+    }      
+    .text{      
+        text-align: center;      
+        font-size: x-large;      
+    }      
+    .container{      
+        text-align: left;      
+    }
+    .error
+    {
+        color: red;  
+    }

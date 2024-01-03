@@ -1,0 +1,87 @@
+<div class="container">
+   
+<div class="row">
+  
+  <!-- <form  #getForm="ngForm"  (ngSubmit)="Submit(getForm)"> -->
+    <div  class="col-md-3">
+      <!-- <div *ngIf="isShown" class="col-md-3"> -->
+        <label for="from_Place">From Place</label>
+        <input required type="text" [(ngModel)]="this.from_Place" id="name" 
+         [ngModelOptions]="{standalone: true}"  class="form-control">
+    </div> 
+    <div  class="col-md-3">
+        <!-- <div *ngIf="isShown" class="col-md-3"> -->
+          <label for="to_Place">To Place</label>
+          <input  required type="text" [(ngModel)]="this.to_Place" id="name" 
+         [ngModelOptions]="{standalone: true}"  class="form-control">
+      </div> 
+
+      <div class="col-md-3">
+        <div  class="float-right">
+ <br>
+ <!-- <button type="submit" class="btn btn-primary" [disabled]="getForm.invalid">Search</button> -->
+ <!-- <input type="submit" class="btn-primary" value="SearchFlight" [disabled]='!getForm.valid'>  -->
+            <button class="btn btn-success"  on-click='SearchFlight()'>Search</button>
+      
+          </div>
+      </div>
+
+  <!-- </form> -->
+  </div>
+</div>
+  
+    
+<div *ngIf="isShown"  class="container">
+    <table class="table table-striped table-hover">
+      <thead>
+  
+        <tr>
+
+          <th>Flight Number</th>
+          <!-- <th>Intrument_Used</th> -->
+          <th>From Place</th>
+          <th>To Place</th>
+          <th>Air Line</th>
+          <th>Price</th>
+          <th>Departure Date & Time</th>
+          <th>End Date Time</th>
+          <!-- 
+          
+          <th>TotalBusinessClassSeats</th>
+          <th>TotalNonBusinessClassSeats</th>
+
+          <th>NoOfRows</th>
+          <th>MealType</th>
+          <th>ScheduledDays</th>
+           -->
+   
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of flights">
+          <td>{{item.flightNumber}}</td>
+         <!-- <td>{{item.Intrument_Used}}</td> -->
+          <td>{{item.from_Place}}</td>
+          <td>{{item.to_Place}}</td>
+          <td>{{item.airLine}}</td>
+          <td>{{item.price}}</td>
+          <td>{{item.startDateTime}}</td>
+          <td>{{item.endDateTime}}</td>
+          <td><span class="btn btn-success" (click)="Search(item)">Book</span></td>
+          <!-- 
+          <td>{{item.EndDateTime}}</td>
+          <td>{{item.TotalBusinessClassSeats}}</td>
+          <td>{{item.TotalNonBusinessClassSeats}}</td>
+
+          <td>{{item.NoOfRows}}</td>
+          <td>{{item.MealType}}</td>
+          <td>{{item.ScheduledDays}}</td>
+          <td>{{item.price}}</td> -->
+        </tr>
+      </tbody>
+    </table>
+  
+
+  </div>
+  
+  

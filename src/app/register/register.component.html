@@ -1,0 +1,197 @@
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<!Doctype html>
+<html>
+<head>
+     <meta charset="UTF-8">
+     <title>Registration Form</title>
+     	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+ <div class="container">
+  <form  #registerForm="ngForm"  (ngSubmit)="Submit(registerForm)">
+ <!---heading---->
+     <header class="heading"> Registration</header><hr>
+	<!---Form starting----> 
+	<div class="row ">
+	 <!--- For Name---->
+         <div class="col-sm-12">
+             <div class="row">
+			     <div class="col-xs-4">
+          	         <label class="firstname">First Name :</label> 
+                    </div>
+		         <div class="col-xs-8">
+		             <!-- <input type="text" name="fname" id="fname" placeholder="Enter your First Name" class="form-control "> -->
+             <input required   type="text" name="name" #name="ngModel"  class="form-control" placeholder="Enter Name"
+             [(ngModel)]="user.name">
+           <span class="error" *ngIf="name.touched && name.invalid" >Please Enter Name</span>    
+                </div>
+		      </div>
+		 </div>
+		 <br>	 <br>
+         <div class="col-sm-12">
+		     <div class="row">
+			     <div class="col-xs-4">
+                     <label class="lastname">Mobile No :</label>
+                    </div>
+				<div class ="col-xs-8">	 
+          <input required   type="text" name="mobile" #mobile="ngModel" class="form-control" placeholder="Enter mobile Number"
+          [(ngModel)]="user.mobile"
+           >
+        <span class="error" *ngIf="mobile.touched && mobile.invalid" >Please Enter mobile No.</span>   
+             
+                </div>
+		     </div>
+		 </div>
+     <!-----For email---->
+     <br>	 <br>
+		 <div class="col-sm-12">
+		     <div class="row">
+			     <div class="col-xs-4">
+		             <label class="mail" >Email :</label></div>
+			     <div class="col-xs-8"	>	 
+            <input required   type="text" name="email" #email="ngModel" class="form-control" placeholder="Enter Email"
+            [(ngModel)]="user.email"
+             >
+          <span class="error" *ngIf="email.touched && email.invalid" >Please Enter Email ID</span>     
+        
+		         </div>
+		     </div>
+		 </div>
+     <br>	 <br>
+	 <!-----For Password and confirm password---->
+          <div class="col-sm-12">
+		         <div class="row">
+				     <div class="col-xs-4">
+		 	              <label class="pass">Password :</label></div>
+				  <div class="col-xs-8">
+            <input required   type="password" name="password" #password="ngModel" class="form-control" placeholder="Enter Password"
+            [(ngModel)]="user.password"
+             >
+          <span class="error" *ngIf="password.touched && password.invalid" >Please Enter Password</span>   
+				 </div>
+          </div>
+		  </div>
+      <br>	 <br>
+      <div class="col-sm-12">
+        <div class="row">
+        <div class="col-xs-4">
+                <label class="pass">Role :</label></div>
+     <div class="col-xs-8">
+      <select class="form-control"  [(ngModel)]="user.role" name="role" #role="ngModel" required>
+        
+        <option value="Admin">Admin</option>
+        <option value="User">User</option>
+      </select>
+      <span class="error" *ngIf="role.touched && role.invalid" >Please Select Role</span> 
+     </div>
+     </div>
+ </div>
+ <br> <br> 
+     <!-----------For Phone number-------->
+         <div class="col-sm-12">
+
+		     <div class="col-sm-12">
+		         <!-- <div class="btn btn-warning">Submit</div> -->
+             <div>
+             <button type="submit" class="btn btn-success" [disabled]="registerForm.invalid">Register</button>
+            </div>
+            </div>
+		 </div>
+	 </div>	 
+		 		 
+  </form>
+</div>
+
+</body>		
+</html>
+	 
+	 
+
+
+
+
+<!--
+
+
+
+<!-- <div class="span6" style="border: 1px solid black">
+<div class="container">
+  
+  <form  #registerForm="ngForm"  (ngSubmit)="Submit(registerForm)">
+    <table class="table table-hover">
+        <div class="row" >
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+             <label for="name">Name</label>
+             <input required   type="text" name="name" #name="ngModel" pattern="[A-Za-z]" class="form-control" placeholder="Enter Name"
+             [(ngModel)]="user.name"
+              >
+           <span class="error" *ngIf="name.touched && name.invalid" >Please Enter Name</span>   
+         
+            
+            </div>
+          </div>
+     <div class="row" >
+       <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+        <label for="email">Email</label>
+        <input required   type="text" name="email" #email="ngModel" class="form-control" placeholder="Enter Email"
+        [(ngModel)]="user.email"
+         >
+      <span class="error" *ngIf="email.touched && email.invalid" >Please Enter Email ID</span>     
+     </div>
+     </div>
+     <div class="row" >
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+         <label for="mobile">Mobile</label>
+         <input required   type="text" name="mobile" #mobile="ngModel" class="form-control" placeholder="Enter mobile Number"
+         [(ngModel)]="user.mobile"
+          >
+       <span class="error" *ngIf="mobile.touched && mobile.invalid" >Please Enter mobile No.</span>     
+      </div>
+      </div>
+      <div class="row" >
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+         <label for="role">Role</label>
+
+
+       <select class="form-control"  [(ngModel)]="user.role" name="role" #role="ngModel" required>
+        
+         <option value="Admin">Admin</option>
+         <option value="User">User</option>
+       </select>
+       <span class="error" *ngIf="role.touched && role.invalid" >Please Select Role</span> 
+       </div>
+      </div>
+     <div class="row">
+      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+       <label for="Password">Password</label>
+       <input required   type="text" name="password" #password="ngModel" class="form-control" placeholder="Enter Password"
+       [(ngModel)]="user.password"
+        >
+     <span class="error" *ngIf="password.touched && password.invalid" >Please Enter Password</span>     
+    </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+        <button type="submit" class="btn btn-primary" [disabled]="registerForm.invalid">Register</button>
+    <br>
+      </div>
+      <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+        <li ><a  style="text-decoration-color:teal; text-align:right;font-size: large; color: midnightblue;" [routerLink]="['/login']" routerLinkActive="router-link-active">Back to Login</a></li>
+ 
+       
+      </div>
+    </div>
+  
+    </table>
+
+  </form>
+
+  </div>
+  </div>
+  
+   -->

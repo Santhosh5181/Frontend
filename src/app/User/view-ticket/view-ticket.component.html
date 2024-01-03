@@ -1,0 +1,64 @@
+<div class="container" >
+    <div class="row" id="htmlData" #content>
+    
+      <h3>Ticket Details</h3>
+      <div class="col-md-8">
+        <!-- <table class="table table-striped table-hover"> -->
+        
+          <table class="table table-bordered">
+            <tr class="table-primary">
+            <th>Flight Number</th>
+            <th>From</th>
+            <th>To</th>
+          </tr>
+          <tr *ngFor="let item of tickets">
+            <td>{{item.flightID}}</td>
+            <td>{{item.fromPlace}}</td>
+            <td>{{item.toPlace}}</td>
+            </tr>
+          </table>
+          <table class="table table-bordered">
+            <tr class="table-primary">
+            <th>PNR</th>
+            <th>Booking Status</th>
+          </tr>
+          <tr *ngFor="let item of tickets">
+            <td>{{item.pnr}}</td>
+           <td>{{item.bookingStatus}}</td>
+           </tr>
+          </table>
+          <table class="table table-bordered">
+            <tr class="table-primary">
+             <th>Meal</th>
+            <th>No. Of Seats</th>
+            </tr>
+            <tr *ngFor="let item of tickets">
+              <td>{{item.mealType}}</td>
+              <td>{{item.noOfSeats}}</td>
+            </tr>
+          </table>
+          
+          
+          <table class="table table-bordered">
+            <tr class="table-primary">
+             <th>Total Price</th>
+            <th>Email</th>
+            </tr>
+            <tr *ngFor="let item of tickets">
+              <td>{{item.totalPrice}}</td>
+              <td>{{item.email}}</td>
+            </tr>
+          </table>
+            
+         
+       
+     
+      </div>
+    </div>
+  <div class="row">
+      <div class="col-md-4 text-right">
+        <button class="btn btn-success btn-block" (click)="Download()">Download PDF</button>
+      </div>
+  
+    </div>
+  </div>

@@ -1,0 +1,50 @@
+
+<div class="container">
+  <form  #loginForm="ngForm"  (ngSubmit)="Submit(loginForm)">
+    <table class="table table-hover">
+  
+     <div class="row" >
+       <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+        <label for="Email">Email</label>
+        <input required   type="text" name="email" #email="ngModel" class="form-control" placeholder="Enter Email"
+        [(ngModel)]="login.email"
+         >
+         <span class="error" *ngIf="email.touched && email.invalid" >Please Enter Email ID</span> 
+        <!-- <input required type="text" id="my-input" class="form-control"  [(ngModel)]="login.email"> -->
+       </div>
+     </div>
+     <div class="row">
+      <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+       <label for="Password">Password</label>
+       <input required   type="password" name="password" #password="ngModel" class="form-control" placeholder="Enter Password"
+       [(ngModel)]="login.password"
+        >
+        <span class="error" *ngIf="password.touched && password.invalid" >Please Enter Password</span> 
+   
+        <!-- <input type="password" id="my-input" class="form-control"required="required" [(ngModel)]="login.password"> -->
+      </div>
+    </div><br>
+    <div class="row">
+      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+        <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">Submit</button>
+        <!-- <button type="button" class="btn btn-success"  on-click='Validate()'>Login</button><br> -->
+        <br>
+        <span style="font-size: medium;" class="text-danger">{{errmsg}}</span>
+      </div>
+    </div>
+
+    <br>
+    <div class="row">
+      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+        <li ><a  style="text-decoration-color:purple; text-align:right;font-size: large; color: midnightblue;" [routerLink]="['/register']" routerLinkActive="router-link-active">Click here for Registration</a></li>
+ 
+       
+      </div>
+    </div>
+  
+    </table>
+  </form>
+
+  </div>
+  
+  
